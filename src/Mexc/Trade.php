@@ -14,7 +14,6 @@ class Trade extends Time
                 'side' => $side,
                 'type' => $type,
                 'quantity' => $quantity,
-                'quoteOrderQty' => $quoteOrderQty,
                 'price' => $price,
                 'recvWindow' => 10000,
                 'timestamp' => Time::time(5000)
@@ -25,6 +24,7 @@ class Trade extends Time
                 'side' => $side,
                 'type' => $type,
                 'quantity' => $quantity,
+                'quoteOrderQty' => $quoteOrderQty,
                 'recvWindow' => 10000,
                 'timestamp' => Time::time(5000)
             ];
