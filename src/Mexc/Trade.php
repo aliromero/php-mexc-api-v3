@@ -63,7 +63,11 @@ class Trade extends Time
     public static function get(string $symbol,string $orderId=null,string $newClientOrderId=null): array|bool
     {
 
-
+        $buildQuery = [
+            'symbol' => $symbol,
+            'recvWindow' => 10000,
+            'timestamp' => Time::time(5000)
+        ];
         if ($orderId != null) {
             $buildQuery = [
                 'symbol' => $symbol,
