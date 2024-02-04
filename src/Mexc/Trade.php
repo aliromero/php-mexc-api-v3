@@ -60,7 +60,7 @@ class Trade extends Time
 
 		return json_decode($res, true);
 	}
-    public static function get(string $symbol,string $orderId=null,string $newClientOrderId=null): array|bool
+    public static function get(string $symbol,string $orderId=null,string $origClientOrderId=null): array|bool
     {
 
         $buildQuery = [
@@ -77,10 +77,10 @@ class Trade extends Time
             ];
         }
 
-        if ($newClientOrderId != null) {
+        if ($origClientOrderId != null) {
             $buildQuery = [
                 'symbol' => $symbol,
-                'newClientOrderId' => $newClientOrderId,
+                'origClientOrderId' => $origClientOrderId,
                 'recvWindow' => 10000,
                 'timestamp' => Time::time(5000)
             ];
