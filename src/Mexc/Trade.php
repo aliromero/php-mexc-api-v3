@@ -60,17 +60,28 @@ class Trade extends Time
 
 		return json_decode($res, true);
 	}
-    public static function get(string $symbol,string $newClientOrderId,string $orderId): array|bool
+    public static function get(string $symbol,string $orderId=null,string $newClientOrderId=null): array|bool
     {
 
 
+        if ($orderId != null) {
             $buildQuery = [
                 'symbol' => $symbol,
-                'newClientOrderId' => $newClientOrderId,
                 'orderId' => $orderId,
                 'recvWindow' => 10000,
                 'timestamp' => Time::time(5000)
             ];
+        }
+
+        if ($newClientOrderId != null) {
+            $buildQuery = [
+                'symbol' => $symbol,
+                'newClientOrderId' => $newClientOrderId,
+                'recvWindow' => 10000,
+                'timestamp' => Time::time(5000)
+            ];
+        }
+
 
 
 
