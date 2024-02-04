@@ -4,19 +4,31 @@ namespace Romero\Mexc\Mexc;
 
 class Trade extends Time
 {
-	public static function trade(string $symbol, string $side, string $type, string $quantity, string $price): array|bool
+	public static function trade(string $symbol, string $side, string $type, string $quantity, string $price=null): array|bool
 	{
 
 
-		$buildQuery = [
-			'symbol' => $symbol,
-			'side' => $side,
-			'type' => $type,
-			'quantity' => $quantity,
-			'price' => $price,
-			'recvWindow' => 10000,
-			'timestamp' => Time::time(5000)
-		];
+        if ($price != null) {
+            $buildQuery = [
+                'symbol' => $symbol,
+                'side' => $side,
+                'type' => $type,
+                'quantity' => $quantity,
+                'price' => $price,
+                'recvWindow' => 10000,
+                'timestamp' => Time::time(5000)
+            ];
+        }else {
+            $buildQuery = [
+                'symbol' => $symbol,
+                'side' => $side,
+                'type' => $type,
+                'quantity' => $quantity,
+                'recvWindow' => 10000,
+                'timestamp' => Time::time(5000)
+            ];
+        }
+
 
 		$url = MEXC_CONFIG['MEXC_URL_API'] . '/order?' . BuildHttpQuery::build($buildQuery) . '&signature=' . Signature::signature($buildQuery);
 		$ch = curl_init($url);
