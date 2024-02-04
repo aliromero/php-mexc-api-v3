@@ -4,7 +4,7 @@ namespace Romero\Mexc\Mexc;
 
 class Trade extends Time
 {
-	public static function trade(string $symbol, string $side, string $type, string $quantity, string $price=null): array|bool
+	public static function trade(string $symbol, string $side, string $type, string $quantity, string $price=null,string $quoteOrderQty=null): array|bool
 	{
 
 
@@ -14,6 +14,7 @@ class Trade extends Time
                 'side' => $side,
                 'type' => $type,
                 'quantity' => $quantity,
+                'quoteOrderQty' => $quoteOrderQty,
                 'price' => $price,
                 'recvWindow' => 10000,
                 'timestamp' => Time::time(5000)
