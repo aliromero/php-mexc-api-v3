@@ -1,6 +1,6 @@
 <?php
 
-namespace WilianMaique\Mexc\Mexc;
+namespace Romero\Mexc\Mexc;
 
 class InfoToken extends Time
 {
