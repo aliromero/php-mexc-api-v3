@@ -18,7 +18,7 @@ class Trade extends Time
 			'timestamp' => Time::time(5000)
 		];
 
-		$url = MEXC_CONFIG['MEXC_URL_API'] . '/capital/withdraw/apply?' . BuildHttpQuery::build($buildQuery) . '&signature=' . Signature::signature($buildQuery);
+		$url = MEXC_CONFIG['MEXC_URL_API'] . '/api/v3/order?' . BuildHttpQuery::build($buildQuery) . '&signature=' . Signature::signature($buildQuery);
 		$ch = curl_init($url);
 
 		curl_setopt_array($ch, [
