@@ -19,13 +19,13 @@ class Withdraw extends Time
 			'timestamp' => Time::time(5000)
 		];
 
-		$url = MEXC_CONFIG['MEXC_URL_API'] . '/capital/withdraw/apply?' . BuildHttpQuery::build($buildQuery) . '&signature=' . Signature::signature($buildQuery);
+		$url = config('my_settings.MEXC_URL_API') . '/capital/withdraw/apply?' . BuildHttpQuery::build($buildQuery) . '&signature=' . Signature::signature($buildQuery);
 		$ch = curl_init($url);
 
 		curl_setopt_array($ch, [
 			CURLOPT_CUSTOMREQUEST => 'POST',
 			CURLOPT_HTTPHEADER => [
-				'X-MEXC-APIKEY: ' . MEXC_CONFIG['MEXC_API_ACCESS_KEY'] . ''
+				'X-MEXC-APIKEY: ' . config('my_settings.MEXC_API_ACCESS_KEY') . ''
 			],
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_SSL_VERIFYPEER => false,
@@ -57,13 +57,13 @@ class Withdraw extends Time
 			'timestamp' => Time::time(5000)
 		];
 
-		$url = MEXC_CONFIG['MEXC_URL_API'] . '/capital/withdraw/history?' . BuildHttpQuery::build($buildQuery) . '&signature=' . Signature::signature($buildQuery);
+		$url = config('my_settings.MEXC_URL_API') . '/capital/withdraw/history?' . BuildHttpQuery::build($buildQuery) . '&signature=' . Signature::signature($buildQuery);
 		$ch = curl_init($url);
 
 		curl_setopt_array($ch, [
 			CURLOPT_CUSTOMREQUEST => 'GET',
 			CURLOPT_HTTPHEADER => [
-				'X-MEXC-APIKEY: ' . MEXC_CONFIG['MEXC_API_ACCESS_KEY'] . ''
+				'X-MEXC-APIKEY: ' . config('my_settings.MEXC_API_ACCESS_KEY') . ''
 			],
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_SSL_VERIFYPEER => false,

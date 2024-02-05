@@ -13,7 +13,7 @@ class PriceTicker
 	{
 		$symbolToken = strtoupper($symbolToken ?? '');
 
-		$url = MEXC_CONFIG['MEXC_URL_API'] . '/ticker/price';
+		$url = config('my_settings.MEXC_URL_API') . '/ticker/price';
 		$ch = curl_init($url);
 
 		curl_setopt_array($ch, [
