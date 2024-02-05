@@ -10,7 +10,9 @@ class InfoToken extends Time
 	*/
 	public static function get(string $tokenCoinName = null): array|bool
 	{
-		$tokenCoinName = strtoupper($tokenCoinName ?? '');
+        date_default_timezone_set('Asia/Tehran');
+
+        $tokenCoinName = strtoupper($tokenCoinName ?? '');
 
 		$buildQuery = [
 			'recvWindow' => 10000,
