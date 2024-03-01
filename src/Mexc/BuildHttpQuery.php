@@ -9,6 +9,6 @@ class BuildHttpQuery
 		ksort($params);
         $params = str_replace('+', '%20', http_build_query($params));
 
-        return http_build_query($params);
+        return $params;
 	}
 }
