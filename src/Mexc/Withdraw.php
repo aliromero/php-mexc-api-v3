@@ -6,8 +6,7 @@ class Withdraw extends Time
 {
 	public static function withdraw(string $coin, string $network, string $address, string $amount, string $withdrawOrderId): array|bool
 	{
-		$coin = strtoupper($coin ?? 'WEMIX');
-		$network = strtoupper($network ?? 'WEMIX');
+
 
 		$buildQuery = [
 			'coin' => $coin,
