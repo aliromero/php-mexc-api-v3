@@ -7,6 +7,8 @@ class BuildHttpQuery
 	public static function build(array $params): string
 	{
 		ksort($params);
-		return http_build_query($params);
+        $params = str_replace('+', '%20', http_build_query($params));
+
+        return http_build_query($params);
 	}
 }
