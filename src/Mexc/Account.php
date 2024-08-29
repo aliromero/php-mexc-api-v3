@@ -133,7 +133,7 @@ class Account extends Time
         $ch = curl_init($url);
 
         curl_setopt_array($ch, [
-            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_HTTPHEADER => [
                 'X-MEXC-APIKEY: ' . config('my_settings.MEXC_API_ACCESS_KEY') . ''
             ],
